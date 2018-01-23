@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.Dao.Dao">
+<select id="getlist" parameterType="com.example.demo.dto.User" resultType="user">
+ select * from t_doctor where did=#{did} and username=#{username}
+
+</select>
+<select id="getlist1" resultType="map"  parameterType="com.example.demo.dto.User">
+
+SELECT d.uid,d.uname,t.zt FROM t_user11 d LEFT JOIN t_u_d t ON d.`uid`=t.`uid` WHERE t.did=#{did} AND t.zt=1
+</select>
+ <update id="update1">
+   update t_u_d set zt=2 where uid=#{uid}
+
+</update> 
+<update id="update2">
+   update t_u_d set zt=3 where uid=#{uid}
+
+</update> 
+<update id="update3">
+   update t_u_d set zt=4 where uid=#{uid}
+
+</update> 
+<update id="update">
+   update t_u_d set bqy=#{bqy} where uid=#{uid}
+
+</update>
+<select id="getlist2" resultType="map" parameterType="com.example.demo.dto.User">
+
+SELECT d.uid,d.uname,t.zt ,t.bqy FROM t_user11 d LEFT JOIN t_u_d t ON d.`uid`=t.`uid` WHERE t.did=#{did} AND t.zt=2
+
+</select> 
+
+</mapper>
